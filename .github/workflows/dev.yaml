@@ -1,13 +1,14 @@
+name: "Composite action test"
 on:
   pull_request:
     branches:
       - master
     types: [opened, synchronize, closed]
 
-job:
+jobs:
   composite_test:
     runs-on: ubuntu-latest
     steps:
       - uses:
       - uses: actions/checkout@v2
-      - uses: .github/workflows/action
+      - uses: .github/actions
