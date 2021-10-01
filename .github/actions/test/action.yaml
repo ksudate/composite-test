@@ -14,5 +14,7 @@ runs:
 
     - name: "if statement test"
       shell: bash
-      if: github.event.pull_request.merged == true
-      run: echo "use if statement"
+      run: |
+        if ${{ github.event.pull_request.merged }} = 'true'; then
+          echo "use if statement"
+        fi
