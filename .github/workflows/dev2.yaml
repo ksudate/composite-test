@@ -1,0 +1,26 @@
+
+name: "Use composite action test"
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, synchronize, closed]
+
+jobs:
+  composite_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Setup Python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9.1'
+
+      - name: "if statement test"
+        run: |
+          if ${{ github.event.pull_request.merged }} = 'true'; then
+            echo "use if statement"
+          fi
