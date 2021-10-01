@@ -1,5 +1,9 @@
 name: "Test Composite Action"
 description: "Test Composite Action"
+inputs:
+  python-version:
+    default: '3.9'
+    required: false
 
 runs:
   using: "composite"
@@ -10,7 +14,7 @@ runs:
     - name: "Setup Python"
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9.1'
+        python-version: ${{ inputs.python-version }}
 
     - name: "if statement test"
       shell: bash
